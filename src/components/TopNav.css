@@ -1,0 +1,91 @@
+.topnav {
+    height: 70px;
+    background-color: var(--dark-header);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid #1a2942;
+}
+
+.topnav-links {
+    display: flex;
+    height: 100%;
+}
+
+.topnav-link {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: #8c9cdb;
+    text-decoration: none;
+    transition: all 0.2s;
+    height: 100%;
+    border-bottom: 3px solid transparent;
+}
+
+.topnav-link:hover {
+    color: white;
+}
+
+.topnav-link.active {
+    color: white;
+    border-bottom: 3px solid var(--primary-orange);
+}
+
+.topnav-link svg {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+}
+
+.topnav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topnav-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Mobile Sticky Header & Scrollable Links */
+@media (max-width: 768px) {
+    .topnav {
+        padding: 0 16px;
+        height: 60px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .topnav-links {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-right: 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .topnav-links::-webkit-scrollbar {
+        display: none;
+    }
+    .topnav-link {
+        padding: 0 12px;
+        font-size: 14px;
+    }
+    .topnav-link svg {
+        display: none; /* Hide icons in topnav on mobile to save space */
+    }
+}

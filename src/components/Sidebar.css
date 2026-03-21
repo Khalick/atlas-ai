@@ -1,0 +1,89 @@
+.sidebar-brand {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background-color: var(--dark-header);
+    border-right: 1px solid #1a2942;
+}
+
+.sidebar-menu {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-right: 4px solid transparent;
+}
+
+.sidebar-link:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active);
+}
+
+.sidebar-link.active {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active);
+    /* In the image, sidebar active item might have a different highlight, but this looks clean */
+}
+
+.sidebar-link svg {
+    margin-right: 14px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Mobile Bottom Tab Bar */
+@media (max-width: 768px) {
+    .sidebar-brand {
+        display: none;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        padding: 0;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+    .sidebar-link {
+        flex-direction: column;
+        padding: 8px 4px;
+        font-size: 11px;
+        border-right: none;
+        border-top: 3px solid transparent;
+        justify-content: center;
+        text-align: center;
+        flex: 1;
+        height: 100%;
+    }
+    .sidebar-link svg {
+        margin-right: 0;
+        margin-bottom: 4px;
+        width: 22px;
+        height: 22px;
+    }
+    .sidebar-link.active {
+        border-right: none;
+        border-top: 3px solid var(--sidebar-active);
+        background-color: transparent;
+    }
+    .sidebar-link:hover {
+        background-color: transparent;
+    }
+}
