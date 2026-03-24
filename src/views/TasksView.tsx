@@ -18,9 +18,9 @@ interface Question {
 }
 
 const TASK_TIERS = [
-    { id: 1, title: 'AI Model Training — Comprehensive', payout: 0.70, batchSize: 10, desc: '10 questions • Mixed categories' },
-    { id: 2, title: 'AI Model Training — Standard', payout: 0.40, batchSize: 6, desc: '6 questions • Focus on accuracy' },
-    { id: 3, title: 'AI Model Training — Quick Batch', payout: 0.30, batchSize: 4, desc: '4 questions • Rapid assessment' }
+    { id: 1, title: 'AI Model Training — Comprehensive', payout: 70, batchSize: 10, desc: '10 questions • Mixed categories' },
+    { id: 2, title: 'AI Model Training — Standard', payout: 40, batchSize: 6, desc: '6 questions • Focus on accuracy' },
+    { id: 3, title: 'AI Model Training — Quick Batch', payout: 30, batchSize: 4, desc: '4 questions • Rapid assessment' }
 ];
 
 const TasksView: React.FC = () => {
