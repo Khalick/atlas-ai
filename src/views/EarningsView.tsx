@@ -8,6 +8,7 @@ const EarningsView: React.FC = () => {
     const { profile, updateProfile } = useContext(AppContext);
     const { showToast } = useToast();
     const [withdrawing, setWithdrawing] = useState<boolean>(false);
+    const [withdrawnAmount, setWithdrawnAmount] = useState<number | null>(null);
     const [selectedMethod, setSelectedMethod] = useState<string>(profile?.payment_method || '');
     const [walletAddress, setWalletAddress] = useState<string>(profile?.payment_address || '');
     const [savingMethod, setSavingMethod] = useState<boolean>(false);
@@ -39,14 +40,30 @@ const EarningsView: React.FC = () => {
             return;
         }
         setWithdrawing(true);
+        const amount = earnings;
         await updateProfile({ earnings: 0 });
-        showToast(`Withdrawal of $${Number(earnings).toFixed(2)} successful! Payment takes 3-7 days to get to your wallet.`, 'success');
+        setWithdrawnAmount(amount);
+        showToast(`Withdrawal of $${Number(amount).toFixed(2)} successful!`, 'success');
         setWithdrawing(false);
     };
 
     return (
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2 style={{ marginBottom: '24px', fontSize: '24px', fontWeight: 600 }}>My Earnings</h2>
+
+            {withdrawnAmount !== null && (
+                <div style={{
+                    background: '#e3fceb', color: '#276749', padding: '16px 20px', borderRadius: '10px',
+                    marginBottom: '20px', fontSize: '14px', fontWeight: 500, border: '1px solid #c6f6d5',
+                    display: 'flex', alignItems: 'center', gap: '10px'
+                }}>
+                    <span style={{ fontSize: '20px' }}>✅</span>
+                    <div>
+                        <div style={{ fontWeight: 600, marginBottom: '2px' }}>Withdrawal of ${Number(withdrawnAmount).toFixed(2)} submitted successfully!</div>
+                        <div>Payment takes 3-7 days to get to your wallet.</div>
+                    </div>
+                </div>
+            )}
 
             {/* Balance Card */}
             <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px' }}>
